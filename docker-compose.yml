@@ -1,0 +1,67 @@
+version: '3.8'
+services:
+  aluno_app:
+    build: ./aluno_app
+    ports:
+      - "4001:4001"
+    command: ["npm", "start"]
+    environment:
+      - NODE_ENV=production
+    restart: unless-stopped
+
+  avaliacao_app:
+    build: ./avaliacao_app
+    ports:
+      - "4000:4000"
+    command: ["npm", "start"]
+    environment:
+      - NODE_ENV=production
+    restart: unless-stopped
+
+  comunicado_app:
+    build: ./comunicado_app
+    ports:
+      - "4003:4003"
+    command: ["npm", "start"]
+    environment:
+      - NODE_ENV=production
+    restart: unless-stopped
+
+  login_app:
+    build: ./login_app
+    ports:
+      - "4005:4005"
+    command: ["npm", "start"]
+    environment:
+      - NODE_ENV=production
+    restart: unless-stopped
+
+  professor_app:
+    build: ./professor_app
+    ports:
+      - "4002:4002"
+    command: ["npm", "start"]
+    environment:
+      - NODE_ENV=production
+    restart: unless-stopped
+
+  turma_app:
+    build: ./turma_app
+    ports:
+      - "4004:4004"
+    command: ["npm", "start"]
+    environment:
+      - NODE_ENV=production
+    restart: unless-stopped
+
+  escola_gestao:
+    build: ./escola-gestao
+    ports:
+      - "3000:3000"
+    command: ["npm", "start"]
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+    restart: unless-stopped
+
+# Ajuste as portas conforme cada aplicação; por padrão mapeamos 3001..3006 para o 3000 interno.
